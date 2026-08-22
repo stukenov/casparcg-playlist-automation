@@ -8,3 +8,8 @@ updates:
       all-updates:
         patterns:
           - "*"
+    ignore:
+      # ts-jest 29 declares peer typescript ">=4.3 <7", so a major TS bump
+      # breaks npm install. Remove once ts-jest supports TypeScript 7.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
